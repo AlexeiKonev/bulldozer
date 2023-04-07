@@ -18,9 +18,12 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        bool b = Input.GetKeyDown(KeyCode.Escape);
+        ShowPause();
+    }
+    private void ShowPause() {
+        bool escapeButton = Input.GetKeyDown(KeyCode.Escape);
 
-        if (b) 
-        _uiManager.ShowPause(b);
+        if (escapeButton)
+            _uiManager.ShowPause(escapeButton);
     }
 }
