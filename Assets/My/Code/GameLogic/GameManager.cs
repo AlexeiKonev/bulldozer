@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class GameManager : MonoBehaviour {
+    public static GameManager instance;
+
+    private UIManager _uiManager;
+    [SerializeField] private PlayerController _playerController;
+
+    void Start() {
+        if (instance == null) {
+
+            instance = this;
+
+        }
+        _uiManager = gameObject.GetComponent<UIManager>();
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        bool b = Input.GetKeyDown(KeyCode.Escape);
+
+        if (b) 
+        _uiManager.ShowPause(b);
     }
 }
